@@ -8,7 +8,7 @@ import java.io.File;
 public class copy {
     public static void main(String[] args) {
 		String filename = "newFile.txt";
-        Path path = Paths.get(URI.create("file:///home/animesh/makdr"));
+        Path path = Paths.get("/home/animesh/makdr"));
         String p="/home/animesh/makdr";
         String absp=p+File.separator+filename;
         if (!Files.exists(path)) {
