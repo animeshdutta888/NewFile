@@ -8,23 +8,27 @@ import java.io.File;
 public class copy {
     public static void main(String[] args) {
 		String filename = "newFile.txt";
-        Path path = Paths.get(URI.create("file:///home/animesh/makdr1"));
+        Path path = Paths.get(URI.create("file:///home/animesh/makdr"));
         String p="/home/animesh/makdr";
         String absp=p+File.separator+filename;
-        File file = new File(absp);
         if (!Files.exists(path)) {
             try {
                 Files.createDirectories(path);
-                if (file.createNewFile()) {
-    				System.out.println("File is created!");
-            }} catch (IOException e) {
-                //fail to create directory
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-    
+        File file = new File(absp);
 
-		
+		try {
+			if (file.createNewFile()) {
+				System.out.println("File is created!");
+			} else {
+				System.out.println("File already exists!");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
     }
     
